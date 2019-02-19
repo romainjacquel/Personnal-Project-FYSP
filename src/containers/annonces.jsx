@@ -13,9 +13,10 @@ componentWillMount(){
 
 renderPosts(){
     const {posts} = this.props;
+    console.log(posts)
     if(posts){
        return posts.map((post)=>{
-            return <AnnoncesSportItem key={post.id} post={posts}/>     
+            return <AnnoncesSportItem key={post.id} post={post}/>     
         })
     }
 }
@@ -36,7 +37,7 @@ render () {
         <tr>
             <th>Titre</th>
             <th>Autheur</th>
-            <th>Inscription</th>
+            <th>En savoir plus</th>
             <th>Supprimer</th>
         </tr>
     </thead>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import * as actions from '../actions'
 import { connect } from 'react-redux'
 import {bindActionCreators} from "redux"
 import AnnoncesContent from '../components/annonces-content';
@@ -13,7 +12,7 @@ componentWillMount(){
 renderPostActive(){
     const {post} = this.props
     if(post){
-        return <AnnoncesContent post={this.props.posts}/>
+        return <AnnoncesContent post={this.props.post}/>
     }
 }
 

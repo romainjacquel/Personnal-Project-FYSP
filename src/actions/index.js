@@ -25,9 +25,9 @@ export function getSport(isLoggedIn){
 
 ////////////
 
-export function getPost(idSport){
+export function getPost(){
     return function (dispatch){
-        axios.get(`${END_POINT}/posts/${idSport}`).then((response)=>{
+        axios.get(`${END_POINT}/posts`).then((response)=>{
             dispatch({type:AT_POSTS.GET_POST, payload:response.data})
         })
     }

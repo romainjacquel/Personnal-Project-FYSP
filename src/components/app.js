@@ -3,6 +3,7 @@ import Header from '../containers/header'
 import Sports from '../containers/sports'
 import Home from '../containers/home';
 import Annonces from '../containers/annonces'
+import AnnoncesDetail from '../containers/annonces-details'
 import notFound from './notFound'
 import {Route,Switch} from 'react-router-dom'
 require("../style.css");
@@ -19,7 +20,8 @@ export default class App extends Component {
         <Switch>
         <Route exact path='/' component={Home}/>
        <Route exact path='/sports' component={Sports}/>
-       <Route exact path='/:name/:idSport' component={Annonces}/>
+       <Route exact path='/posts/:name/:idSport' component={Annonces}/>
+       <Route exact path='/post/:id' component={AnnoncesDetail}/>
        <Route path="*" component={notFound}/>
        </Switch>
       </div>
