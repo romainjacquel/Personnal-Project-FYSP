@@ -1,0 +1,12 @@
+
+export const AT_POSTS ={
+    GET_POST : "GET_POST",
+    ADD_POST : "ADD_POST",
+    DELETE_POST : "DELETE_POST",
+    GET_ACTIVE_POST : "GET_ACTIVE_POST"
+}
+
+export const SET_AUTHENTIFICATION = "SET_AUTHENTIFICATION"
+export const GET_SPORT = "GET_SPORT"
+
+ 
