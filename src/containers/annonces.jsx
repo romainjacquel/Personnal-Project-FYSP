@@ -29,7 +29,7 @@ render () {
     
 
     return (<div className="container">
-            <h1>{NAME}</h1>
+            <h1 className="title">{NAME}</h1>
 
         <table className='table table-hover'>
         
@@ -37,8 +37,9 @@ render () {
         <tr>
             <th>Titre</th>
             <th>Autheur</th>
+            <th>Places restantes</th>
             <th>En savoir plus</th>
-            <th>Supprimer</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>

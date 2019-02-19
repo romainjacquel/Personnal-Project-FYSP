@@ -7,8 +7,24 @@ body{
     background-color: white;
 }
 
-.title-home{
-    text-align: center;
+.title{
     margin: 3rem 0;
+}
+
+.title_inscriptionOK{
+    text-align: center
+}
+
+.btn_inscriptionOK{
+    display: block;
+    margin : auto;
+}
+
+*{
+    box-sizing: border-box
+}
+
+.detail_annonces{
+    margin-top: 3rem
 }
 

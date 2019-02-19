@@ -3,7 +3,7 @@ import React from "react"
 const HomeContent = ()=>{
     return(
         <div className="container">
-        <h1 className="title-home">FYSP : Qu'est ce que c'est ??</h1>
+        <h1 className="title">FYSP : Qu'est ce que c'est ??</h1>
             <p className="text-justify">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus est at metus tristique, nec rhoncus mauris eleifend. Donec eu nisi magna. Suspendisse vitae urna sit amet purus feugiat consectetur id ac elit. Cras non dui eu sapien sodales bibendum a lacinia urna. Duis lectus sem, iaculis in feugiat eget, maximus quis leo. Curabitur at finibus dui. Vivamus pellentesque tellus egestas, convallis magna non, ornare ex. Quisque consequat bibendum sem, a sagittis elit finibus in. Donec at erat felis. Proin convallis lorem orci, at fermentum tellus malesuada ac. Suspendisse porta dolor diam.
 
