@@ -25,9 +25,9 @@ export function getSport(isLoggedIn){
 
 ////////////
 
-export function getPost(){
+export function getPost(idSport){
     return function (dispatch){
-        axios.get(`${END_POINT}/posts`).then((response)=>{
+        axios.get(`${END_POINT}/posts?idSport=${idSport}`).then((response)=>{
             dispatch({type:AT_POSTS.GET_POST, payload:response.data})
         })
     }
@@ -62,4 +62,8 @@ export function addPost(post){
             dispatch({type:AT_POSTS.ADD_POST, payload:response.data})
         })
     }
+}
+
+export function decrementPlaces(nbPlaces){
+    return nbPlaces -1 
 }

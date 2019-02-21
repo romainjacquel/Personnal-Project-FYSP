@@ -1,29 +1,42 @@
-import React from 'react'
+import React,{Component} from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {bindActionCreators} from "redux"
+import {decrementPlaces} from '../actions/index'
 
-const AnnoncesContent =({post})=>  {
+class AnnoncesContent extends Component {
 
-
-// Faire une sauvegarde dans le state de l'appli pour decrementPlaces()
-function decrementPlaces(){
-      let {places} = post
-      if(places){
-            console.log(places)
-            places = places -1;
-            console.log(places)
-            return places
-      }
+constructor(props){
+      super(props)
+      const nbPlaces = this.props.post.places
+      this.state = {places : nbPlaces}
 }
 
-return (
+render(){
+      const {post} = this.props;
+
+  return (
         <div className="container detail_annonces">
             <h2>{post.title}</h2>
             <p>Auteur : {post.author}</p>
             <p>{post.content}</p>
-            <Link to="/inscriptionOK"><button className="btn btn-success" onclick={decrementPlaces()}>Je participe</button></Link>
+            <p>Places restantes : {this.state.places}</p>
+            <Link to="/inscriptionOK"><button className="btn btn-success">Je participe</button></Link>
       </div>
-)
+)    
 }
 
+}
+const mapStateToProps = (state) => {
+return { 
+      nbPlaces : state.nbPlaces
+ }
+}
 
-export default AnnoncesContent
+const mapDispatchToProps = (dispatch) => ({
+      ...bindActionCreators({decrementPlaces}, dispatch) 
+})
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(AnnoncesContent)

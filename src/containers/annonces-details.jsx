@@ -5,6 +5,7 @@ import AnnoncesContent from '../components/annonces-content';
 import {getActivePost} from '../actions/index'
 
 class AnnoncesDetail extends Component  {
+
 componentWillMount(){
     this.props.getActivePost(this.props.match.params.id)
 }
