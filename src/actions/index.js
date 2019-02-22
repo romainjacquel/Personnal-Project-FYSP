@@ -44,7 +44,7 @@ export function getActivePost(id){
 export function deletePost(id){
     return function (dispatch){
         axios.delete(`${END_POINT}/posts/${id}`).then((response)=>{
-            dispatch({type:AT_POSTS.DELETE_POST, payload:response.data})
+            dispatch({type:AT_POSTS.DELETE_POST, payload:id})
         })
     }
 }

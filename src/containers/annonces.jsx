@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from "redux"
-import {getPost} from '../actions/index'
+import {getPost,deletePost} from '../actions/index'
 import AnnoncesSportItem from '../components/annonces-sport-item';
 
 class Annonces extends Component  {
@@ -16,9 +16,14 @@ renderPosts(){
     console.log(posts)
     if(posts){
        return posts.map((post)=>{
-            return <AnnoncesSportItem key={post.id} post={post}/>     
+            return <AnnoncesSportItem key={post.id} post={post} deletePostCallBack={(post)=>{this.deletePostCallBack(post)}}/>     
         })
     }
+}
+
+deletePostCallBack(post){
+    console.log("delete",post)
+    this.props.deletePost(post.id)
 }
 
 
@@ -61,7 +66,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps =(dispatch)=> ({
-    ...bindActionCreators({getPost}, dispatch)
+    ...bindActionCreators({getPost,deletePost}, dispatch)
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Annonces)
