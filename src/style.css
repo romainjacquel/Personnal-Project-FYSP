@@ -31,3 +31,21 @@ body{
 .button_space{
     margin-left: 2rem;
 }
+
+.error{
+    margin-top:1rem;
+    font-size: 0.8rem;
+    color: red;
+}
+
+.container form .bmd-label-static{
+    font-size: 1.4rem;
+}
+
+.form-control{
+    margin-bottom: 1rem;
+}
+
+.button_form{
+    margin-top: 2rem;
+}

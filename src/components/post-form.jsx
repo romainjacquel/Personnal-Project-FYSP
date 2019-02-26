@@ -7,7 +7,7 @@ import {addPost} from '../actions/index'
 
 class PostForm extends Component{
 
-submit = ({title,content,places,author})=>{
+submit = ({title="",content="",places="",author=""})=>{
 
         let error = {}
         let isError = false;
@@ -35,34 +35,33 @@ submit = ({title,content,places,author})=>{
         if(isError){
             throw new SubmissionError(error);
         }else{
-            console.log(title,content,places,author)
             this.props.addPost(title,content,places,author);
         }
     }
+
+    renderField = ({type,label,input,meta:{touched,error}})=>(
+        <div className="form-group">
+            <label className="label_form">{label}</label>
+            <input className="form-control" {...input} type={type}/>
+            {touched && error && 
+            <span className="error">{error}</span>}
+        </div>
+    )
 
 render(){
     return(
 <div className="container">
     <h1 className="title">Créer votre propre annonce </h1>
     <form onSubmit={this.props.handleSubmit(this.submit)}>
-        <div className="form-group">
-            <label>Titre</label>
-            <Field className="form-control" name="title" component="input" type="text"/>
-        </div>
-        <div className="form-group">
-            <label>Description</label>
-            <Field className="form-control" name="content" component="input" type="textarea"/>
-        </div>
-        <div className="form-group">
-            <label>Nombre de places</label>
-            <Field className="form-control" name="places" component="input" type="number"/>
-        </div>
-        <div className="form-group">
-            <label>Organisateur</label>
-            <Field className="form-control" name="author" component="input" type="text"/>
-        </div>
+            <Field label ="Titre" name="title" component={this.renderField} type="text"/>
+            <Field label= "Description" name="content" component={this.renderField} type="textarea"/>
+            <Field label="Nombre de places" name="places" component={this.renderField} type="number"/>
+            <Field label="Organisateur" name="author" component={this.renderField} type="text"/>
+
+    <div className="button_form">
         <Link to={"/"}><button className="btn btn-danger">Retour à l'accueil</button></Link>
         <button className="btn btn-primary button_space" type="submit">Créer</button>
+    </div>        
                
     </form>
     </div>
