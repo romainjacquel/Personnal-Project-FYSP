@@ -23,6 +23,16 @@ export function getSport(isLoggedIn){
 }
 
 
+// Générerer les ids 
+
+function getIdSport(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+  
+  function getIdUser(min,max){
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
 ////////////
 
 export function getPost(idSport){
@@ -49,14 +59,17 @@ export function deletePost(id){
     }
 }
 
-export function addPost(post){
+export function addPost(title,content,places,author){
     return function (dispatch){
         axios.post(`${END_POINT}/posts/`,
-        {
-            title:post.title,
-            content:post.content,
-            author : post.author,
-            country : post.country
+        {   
+            idUser: getIdUser(1,11),
+            idSport : getIdSport(1,4),
+            title: title,
+            content:content,
+            places : places,
+            author :author
+
         }
         ).then((response)=>{
             dispatch({type:AT_POSTS.ADD_POST, payload:response.data})
@@ -64,6 +77,6 @@ export function addPost(post){
     }
 }
 
-export function decrementPlaces(nbPlaces){
-    return nbPlaces -1 
+export function decrementPlaces(){
+
 }

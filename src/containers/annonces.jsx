@@ -14,7 +14,6 @@ componentWillMount(){
 
 renderPosts(){
     const {posts} = this.props;
-    console.log(posts)
     if(posts){
        return posts.map((post)=>{
             return <AnnoncesSportItem key={post.id} post={post} deletePostCallBack={(post)=>{this.deletePostCallBack(post)}}/>     
