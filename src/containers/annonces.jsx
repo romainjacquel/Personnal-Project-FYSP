@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from "redux"
 import {getPost,deletePost} from '../actions/index'
 import AnnoncesSportItem from '../components/annonces-sport-item';
+import {Link} from "react-router-dom"
 
 class Annonces extends Component  {
 
@@ -35,7 +36,9 @@ render () {
 
     return (<div className="container">
             <h1 className="title">{NAME}</h1>
-
+    <Link to={"/create-form"}>
+        <button className="btn btn-primary">Ajouter une annonce</button>
+    </Link>
         <table className='table table-hover'>
         
     <thead>

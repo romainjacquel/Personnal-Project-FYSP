@@ -7,6 +7,7 @@ import AnnoncesDetail from '../containers/annonces-details'
 import InscriptionOK from '../containers/inscriptionOK'
 import notFound from './notFound'
 import {Route,Switch} from 'react-router-dom'
+import CreateForm from "../containers/create-form"
 require("../style.css");
 
 export const allSports = [{idSport:1,name:"Football"},{idSport:2,name:"Fitness"},{idSport:3,name:"Running"}]
@@ -21,6 +22,7 @@ export default class App extends Component {
         <Switch>
         <Route exact path='/' component={Home}/>
        <Route exact path='/sports' component={Sports}/>
+       <Route exact path='/create-form' component={CreateForm} />
        <Route exact path='/inscriptionOK' component={InscriptionOK}/>
        <Route exact path='/posts/:name/:idSport' component={Annonces}/>
        <Route exact path='/post/:id' component={AnnoncesDetail}/>
