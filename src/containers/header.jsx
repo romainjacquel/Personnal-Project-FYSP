@@ -19,9 +19,9 @@ class Header extends Component{
         </li>
   
         <li className="nav-item">
-          <a className="nav-link" href="#">
+          <Link className="nav-link" to="/signin">
             Connexion
-          </a>
+          </Link>
         </li>
       </ul>
       )
