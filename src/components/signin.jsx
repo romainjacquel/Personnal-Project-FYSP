@@ -7,8 +7,8 @@ const FIELDS = {email : "email", password : "password"}
 
 class Signin extends Component{
 
-    handleSubmit(){
-        //todo
+    handleSubmit = (credentials) =>{
+        this.props.signinUser(credentials,this.props.history)
     }
 
     render(){
@@ -38,9 +38,9 @@ class Signin extends Component{
     }
 }
 
-const signinForm = reduxForm({
-    formUser:"signin",
+ const singinForm = reduxForm({
+    form:"signin",
     fields : Object.keys(FIELDS)
     })(Signin);
 
-export default connect(null,actions)(signinForm)
+export default connect(null,actions)(singinForm)

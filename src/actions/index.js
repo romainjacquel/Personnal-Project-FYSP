@@ -3,16 +3,15 @@ import {SET_AUTHENTIFICATION,GET_SPORT} from "./action-types"
 import {AT_POSTS} from "./action-types"
 
 const END_POINT = "http://localhost:3000"
+const START_POINT_FRONT = "http://localhost:3090"
 
 export function setAuthentification(isLoggedIn){
-    return function(dispatch) {
-        dispatch({
+    return {
             type:SET_AUTHENTIFICATION,
             payload:isLoggedIn
-        })
-    }
-}
-
+    };
+}      
+    
 export function getSport(isLoggedIn){
     return function(dispatch) {
         dispatch({
@@ -79,4 +78,26 @@ export function addPost(title,content,places,author){
 
 export function decrementPlaces(){
 
+}
+
+export function signinUser({email,password},history){
+    return function(dispatch){
+        axios.post(`${START_POINT_FRONT}/signin`,{
+            email,
+            password
+        }).then((response)=>{
+            localStorage.setItem("token",response.data.token);
+            dispatch(setAuthentification(true));
+            history.push('/sports')
+        }).catch((error)=>{
+            console.log(error)
+        })
+    }
+}
+
+export function signoutUser(){
+    return function (dispatch){
+        dispatch(setAuthentification(false))
+        localStorage.removeItem('token');
+    }
 }

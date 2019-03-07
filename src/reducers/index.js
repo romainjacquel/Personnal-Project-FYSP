@@ -4,7 +4,7 @@ import ReducerPosts from './reducer-posts'
 import ReducerActivePost from './reducer-activePost'
 import decrementPlaces from "./reducer-decrementPlaces";
 import {reducer as formReducer} from "redux-form"
-import {reducer as formUser} from "redux-form"
+import {reducer as form} from "redux-form"
 
 const rootReducer = combineReducers({
     authentification : AuthentificationReducer,
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
     activePost: ReducerActivePost,
     nbPlaces : decrementPlaces,
     form : formReducer,
-    formUser
+    formUser : form
 });
 
 export default rootReducer;
