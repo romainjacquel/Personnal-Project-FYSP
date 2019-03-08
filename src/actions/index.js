@@ -101,3 +101,18 @@ export function signoutUser(){
         localStorage.removeItem('token');
     }
 }
+
+export function signupUser({email,password},history){
+    return function(dispatch){
+        axios.post(`${START_POINT_FRONT}/signup`,{
+            email,
+            password
+        }).then((response)=>{
+            localStorage.setItem("token",response.data.token);
+            dispatch(setAuthentification(true));
+            history.push('/sports')
+        }).catch((error)=>{
+            console.log(error)
+        })
+    }
+}
