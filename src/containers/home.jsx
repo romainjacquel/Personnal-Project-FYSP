@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import BandeauHome from "../img/bandeau-home.jpg"
+import Slider from '../components/slider'
 import HomeContent from "../components/home-content"
 
 
 class Home extends Component {
   render() {
     return <div>
-      <img alt ="Bandeau home" src={BandeauHome}/>
+      <Slider/>
       <HomeContent/>
       </div>;
   }
 }
+
 
 export default Home;
