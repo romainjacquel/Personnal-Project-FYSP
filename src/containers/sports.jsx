@@ -10,7 +10,7 @@ class Sports extends Component {
       <div className="container">
       {
         allSports.map((sport)=>
-        <div className="card">
+        <div key={sport.idSport} className="card">
         <div className="card-body">
         <h3 className="card-title">{sport.name}</h3>
         <Link to={`/posts/${sport.name}/${sport.idSport}`} className="btn btn-primary">Voir les annonces</Link>

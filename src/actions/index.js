@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {SET_AUTHENTIFICATION,GET_SPORT} from "./action-types"
+import {SET_AUTHENTIFICATION,GET_SPORT,PARSE_ERROR,RESET_ERROR} from "./action-types"
 import {AT_POSTS} from "./action-types"
 
 const END_POINT = "http://localhost:3000"
@@ -90,7 +90,7 @@ export function signinUser({email,password},history){
             dispatch(setAuthentification(true));
             history.push('/sports')
         }).catch((error)=>{
-            console.log(error)
+            dispatch(parseError("Identifiants invalides"))
         })
     }
 }
@@ -115,4 +115,12 @@ export function signupUser({email,password},history){
             console.log(error)
         })
     }
+}
+
+export function parseError(errorMessage){
+    return {type:PARSE_ERROR, payload:errorMessage}
+}
+
+export function resetError(){
+    return {type:RESET_ERROR}
 }

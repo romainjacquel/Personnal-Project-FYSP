@@ -6,7 +6,7 @@ import HomeContent from "../components/home-content"
 class Home extends Component {
   render() {
     return <div>
-      <img src={BandeauHome}/>
+      <img alt ="Bandeau home" src={BandeauHome}/>
       <HomeContent/>
       </div>;
   }

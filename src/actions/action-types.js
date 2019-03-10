@@ -10,4 +10,7 @@ export const AT_POSTS ={
 export const SET_AUTHENTIFICATION = "SET_AUTHENTIFICATION"
 export const GET_SPORT = "GET_SPORT"
 
+export const PARSE_ERROR = "PARSE_ERROR"
+export const RESET_ERROR = "RESET_ERROR"
+
  

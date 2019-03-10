@@ -8,6 +8,7 @@ import InscriptionOK from '../containers/inscriptionOK'
 import Signin from "../components/signin"
 import Signout from "../components/signout"
 import Signup from "../components/signup"
+import Errors from './errors'
 import notFound from './notFound'
 import {Route,Switch} from 'react-router-dom'
 import CreateForm from "../containers/create-form"
@@ -22,6 +23,7 @@ export default class App extends Component {
     return (
       <div>
         <Header/>
+        <Errors/>
         <Switch>
         <Route exact path='/' component={Home}/>
        <Route exact path='/sports' component={Sports}/>
