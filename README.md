@@ -1,6 +1,6 @@
 # Personnal project FYSP
 
-** Introduction **
+**Introduction**
 
 *Voici un petit projet React.js / Redux, Node.js, MongoDB. Projet que je présenterais lors de mon examen de fin d'étude car il rentre dans le socle des compétences requises.*
 
