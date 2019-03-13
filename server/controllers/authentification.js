@@ -33,12 +33,14 @@ exports.signup = function(req,res,next){
                 if(err){
                     return next(err);
                 }
-                res.json({token : getTokenForUser(user)});
+                res.json({token : getTokenForUser(user),
+                     user});
             })
         }
     })
 }
 
 exports.signin = function(req,res,next){
-    res.json({token : getTokenForUser(req.user)});
+    res.json({token : getTokenForUser(req.user),
+         user : req.user});
 }

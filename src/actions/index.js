@@ -76,8 +76,24 @@ export function addPost(title,content,places,author){
     }
 }
 
-export function decrementPlaces(){
+export function decrementPlaces(places,newPlaces){
+    return function(dispatch){
+        axios.put(`${END_POINT}/inscriptionOK`,{
+            places : places -1  
+        }).catch((err)=>{
+            console.log(err)
+            alert("Decrementation impossible", err)
+        }).then((response)=>{
+            dispatch(newNbPlaces(newPlaces))
+        })
+        }  
+    }
 
+export const newNbPlaces = newPlaces =>{
+    return{
+        type:AT_POSTS.DECREMENT_PLACES,
+        newPlaces
+    }
 }
 
 export function signinUser({email,password},history){
@@ -87,7 +103,8 @@ export function signinUser({email,password},history){
             password
         }).then((response)=>{
             localStorage.setItem("token",response.data.token);
-            dispatch(setAuthentification(true));
+            dispatch(setAuthentification(true,response.data.user));
+            console.log(response)
             history.push('/sports')
         }).catch((error)=>{
             dispatch(parseError("Identifiants invalides"))
@@ -109,7 +126,8 @@ export function signupUser({email,password},history){
             password
         }).then((response)=>{
             localStorage.setItem("token",response.data.token);
-            dispatch(setAuthentification(true));
+            dispatch(setAuthentification(true,response.data.user));
+            console.log(response)
             history.push('/sports')
         }).catch((error)=>{
             console.log(error)

@@ -1,5 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {bindActionCreators} from "redux"
+import {decrementPlaces} from '../actions/index'
 
 const InscriptionOK =()=> {
 
@@ -11,4 +14,14 @@ return (
 )
 }
 
-export default InscriptionOK
+const mapStateToProps = (state) => {
+  return {
+    places : state.posts.places
+  }
+}
+
+const mapDispatchToProps =(dispatch)=> ({
+  ...bindActionCreators({decrementPlaces}, dispatch)
+})
+
+export default connect(mapStateToProps,mapDispatchToProps) (InscriptionOK)
