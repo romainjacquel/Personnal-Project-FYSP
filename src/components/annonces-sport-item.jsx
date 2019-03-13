@@ -8,6 +8,7 @@ class AnnoncesSportItem extends Component{
 
 
 renderDeleteButton=()=>{
+    // Il faudra récuperer l'id du user ici
     if(!this.props.isLoggedIn){
       return <td>Aucune</td>  
     }else{
@@ -30,7 +31,6 @@ render(){
         }else{
             return <td><button className="btn btn-danger" onClick={()=>deletePost(post)}>Supprimer</button></td>
         }
-        
     }
 
     return (
